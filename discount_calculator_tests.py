@@ -30,3 +30,11 @@ class DiscountCalculatorTests(unittest.TestCase):
         discount_calculator = Discount_Calculator()
         result = discount_calculator.calculate(250.0, 5.0, 'absolute')
         self.assertEqual(5.0, result)
+
+    def excessive_percent_discount_type_test(self):
+        discount_calculator = Discount_Calculator()
+        self.assertRaises(ValueError, discount_calculator.calculate, 250, 110, 'percent')
+
+    def excessive_absolute_discount_type_test(self):
+        discount_calculator = Discount_Calculator()
+        self.assertRaises(ValueError, discount_calculator.calculate, 250, 260, 'absolute')
