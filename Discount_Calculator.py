@@ -7,6 +7,8 @@ class Discount_Calculator(object):
             
         elif discount_type == 'absolute':
             discount = discount_amt
-            
-        return discount
+
+        else:
+            raise ValueError("Invalid discount type")
         
+        return discount
